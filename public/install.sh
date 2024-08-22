@@ -51,7 +51,7 @@ asset_path=$(
     command curl -L -s \
         -H "Accept: application/vnd.github+json" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
-        https://api.github.com/repos/fr3h4g/mjau/releases?per_page=1  |
+        https://api.github.com/repos/getmjau/mjau/releases?per_page=1  |
     command grep -o "browser_download_url.*${exe_name}-.*-${os}-${arch}.tar.gz" |
     command head -n 1 |
     command cut -c 25-
