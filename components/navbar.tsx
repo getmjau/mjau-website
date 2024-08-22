@@ -53,7 +53,7 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2">
-      <img src="/mjau_logo.svg" alt="logo" className="w-15 h-15" />
+      <img src="/mjau_logo.svg" alt="logo" width="40" height="40" />
       <h2 className="text-md font-bold">Mjau</h2>
     </Link>
   );
