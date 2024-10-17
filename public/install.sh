@@ -62,16 +62,15 @@ if [[ ! "$asset_path" ]]; then
 fi
 asset_uri="${asset_path}"
 
-echo "[1/3] Download ${asset_uri} to ${downloadFolder}"
+echo "[1/2] Download ${asset_uri} to ${downloadFolder}"
 rm -f ${downloaded_file}
 curl --silent --fail --location --output "${downloaded_file}" "${asset_uri}"
 
-echo "[2/3] Install ${exe_name} to the ${executable_folder}"
-tar -xz -f ${downloaded_file} -C ${executable_folder}
+echo "[2/2] Install ${exe_name} to the ${executable_folder}"
 exe=${executable_folder}/${exe_name}
-chmod +x ${exe}
+tar -xz -f ${downloaded_file} -C ${downloadFolder}
+sudo install -o root -m 0755 ${downloadFolder}/mjau /usr/local/bin/mjau
 
-echo "[3/3] Set environment variables"
 echo "${exe_name} was installed successfully to ${exe}"
 if command -v $exe_name version >/dev/null; then
     echo "Run '$exe_name --help' to get started"
