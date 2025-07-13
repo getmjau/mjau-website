@@ -59,7 +59,7 @@ function Menu({ isSheet = false }) {
             <h4 className="font-medium sm:text-sm">{title}</h4>
             <div className="flex flex-col gap-3 sm:text-sm dark:text-neutral-300/85 text-neutral-800 ml-0.5">
               {items.map((subItem) => {
-                const key = `/docs/${href}${subItem.href}`;
+                const key = `/docs${subItem.href}`;
                 const Comp = (
                   <Anchor
                     activeClassName="font-medium text-primary"
