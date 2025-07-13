@@ -1,0 +1,18 @@
+---
+title: Standard Variables
+---
+
+### Standard Variables
+
+mjau provides a set of standard, built-in variables that you can use in your requests and commands:
+
+- `{{request.name}}`: The name of the current request.
+- `{{request.method}}`: The HTTP method of the current request.
+- `{{request.url}}`: The URL of the current request.
+- `{{request.body}}`: The body of the current request.
+- `{{request.headers.<header_name>}}`: The value of a specific request header.
+- `{{response.status_code}}`: The status code of the response.
+- `{{response.status_text}}`: The status text of the response.
+- `{{response.body}}`: The body of the response.
+- `{{response.headers.<header_name>}}`: The value of a specific response header.
+- `{{response.elapsed}}`: The time it took to receive the response.

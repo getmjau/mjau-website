@@ -9,11 +9,11 @@ export default function Home() {
       <img src="/mjau_logo.svg" alt="logo" width="200" height="200" />
       <h1 className="text-3xl font-bold mb-4 sm:text-7xl">Mjau</h1>
       <p className="mb-8 sm:text-xl max-w-[800px] text-muted-foreground">
-        Mjau is a api testing tool for developers.
+        API Testing That's as Simple as a Meow
       </p>
       <div className="flex flex-row items-center gap-5">
         <Link
-          href={`/docs/${page_routes[0].href}`}
+          href={`/docs/`}
           className={buttonVariants({ className: "px-6", size: "lg" })}
         >
           Get Started

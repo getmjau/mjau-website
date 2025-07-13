@@ -1,0 +1,18 @@
+---
+title: mjau.yaml File Structure
+---
+
+### mjau.yaml File Structure
+
+The `mjau.yaml` file has the following structure:
+
+- `environments`: An array of environments, each with a name and an array of variables.
+- `requests`: An array of requests, each with the following properties:
+  - `name`: The name of the request.
+  - `method`: The HTTP method to use (e.g., GET, POST).
+  - `url`: The URL to send the request to.
+  - `headers`: An array of key-value pairs for the request headers.
+  - `body`: The request body.
+  - `pre_commands`: An array of commands to run before the request.
+  - `commands`: An array of commands to run after the request.
+  - `asserts`: An array of assertions to validate the response.

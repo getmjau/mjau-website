@@ -1,0 +1,60 @@
+---
+title: Example mjau.yaml
+---
+
+### Example mjau.yaml
+
+```yaml
+# This is a sample mjau configuration file
+# You can use this file as a template for your own configuration
+environments:
+  - name: dev
+    variables:
+      - key: base_url
+        value: https://api.dev.example.com
+  - name: prod
+    variables:
+      - key: base_url
+        value: https://api.example.com
+
+requests:
+  - name: create_user
+    method: POST
+    url: '{{environment.base_url}}/users'
+    headers:
+      - key: Content-Type
+        value: application/json
+    body: |
+      {
+        "name": "test-user-{{$random(1000)}}",
+        "email": "test-user-{{$random(1000)}}@example.com"
+      }
+    commands:
+      - command: add_json_variable
+        description: "get the user id from the response"
+        variable: user_id
+        from_variable: response.body
+        path: id
+
+  - name: get_user
+    method: GET
+    url: '{{environment.base_url}}/users/{{user_id}}'
+    asserts:
+      - description: "status code is 200"
+        variable: response.status_code
+        comparison: "=="
+        value: 200
+      - description: "response body contains user id"
+        variable: response.body
+        comparison: contains
+        value: "{{user_id}}"
+
+  - name: delete_user
+    method: DELETE
+    url: '{{environment.base_url}}/users/{{user_id}}'
+    asserts:
+      - description: "status code is 204"
+        variable: response.status_code
+        comparison: "=="
+        value: 204
+```
